@@ -21,7 +21,7 @@ In this lab, you will:
 
 2. Under **List scope**, select the compartment in which you want to create the vault.
 
-   ![Select Compartment Button](images/select-compartment-button.jpg)
+   ![Select Compartment Button](images/select-compartment-field.png)
 
 3. Click **Create Vault**.
 
@@ -29,7 +29,7 @@ In this lab, you will:
 
 4. In the **Create Vault** dialog box, provide the following details:
 
-      ```
+      ```txt
       Create in Compartment: <your compartment>
 
       Name: shared-vault
@@ -37,11 +37,11 @@ In this lab, you will:
       Make it a virtual private vault: NO (LEAVE THE BOX UNCHECKED)
       ```
 
+      ![Provide Details Space](images/provide-details-space.png)
+
       >Note: You cannot change the vault type after the vault is created.
 
 5. Click **Crete Vault**
-
-6. View the **Vault** details. Copy **OCID**, you will need it in the configuring application lab.
 
 ## Task 2: Create OCI Vault Master Encryption Key
 
