@@ -18,7 +18,7 @@ In this lab, you will:
 
 2. Clone the sample application source code.
 
-	```bash
+	```
 	<copy>
 	git init lab
 	cd lab
@@ -31,7 +31,7 @@ In this lab, you will:
 
 3. Open the sample application source code from the _gdk-oci-adb-mvn_ directory in **Visual Studio Code**.
 
-	```bash
+	```
 	<copy>
 	code gdk-oci-adb-mvn
 	</copy>

@@ -13,7 +13,7 @@ In this lab, you will:
 * Create an OCI Vault
 * Create OCI Vault Master Encryption Key
 
-## Task 1: Create OCI Vault
+## Task 1: Create an OCI Vault
 
 1. From the Oracle Cloud Console, open the navigation menu, click **Identity & Security**, and then click **Vault**.
 
@@ -63,9 +63,7 @@ In this lab, you will:
 
 3. Click **Create Key**.
 
-4. View the **Master Key Details**.
-
-Congratulations! In this lab, you created a new OCI Vault in your workshop compartment.
+Congratulations! In this lab, you created a new OCI Vault with Master Encryption Key in your workshop compartment.
 
 You may now **proceed to the next lab**.
 

@@ -13,8 +13,8 @@ Estimated Lab Time: 05 minutes
 In this lab, you will:
 
 * Confirm the Application dependencies
-* Configure the Application to connect to the OCI Autonomous Database instance
 * Configure the Application to read secrets stored in OCI Vault
+* Configure the Application to connect to the OCI Autonomous Database instance
 * Configure OCI Instance Principal Authentication
 
 ## Task 1: Confirm the Application dependencies
@@ -33,7 +33,9 @@ In this lab, you will:
     </dependency>
     ```
 
-3. Confirm the distributed configuration feature is enabled using the `micronaut.config-client.enabled` flag in the _bootstrap-oraclecloud.properties_ file.
+## Task 2: Configure the Application to read secrets stored in OCI Vault
+
+1. Confirm the distributed configuration feature is enabled using the `micronaut.config-client.enabled` flag in the _bootstrap-oraclecloud.properties_ file.
 
     _oci/src/main/resources/bootstrap-oraclecloud.properties_
 
@@ -41,27 +43,14 @@ In this lab, you will:
     micronaut.config-client.enabled=true
     ```
 
-4. Confirm the following snippet in the _bootstrap-oraclecloud.properties_ file. This snippet configures the application to read secrets stored in OCI Vault when the application is running on an OCI Compute Instance. You'll set the value of the externalized configuration variables `COMPARTMENT_ID` and `VAULT_ID` in subsequent steps.
-
+2. Confirm the following snippet in the _bootstrap-oraclecloud.properties_ file. This snippet configures the application to read secrets stored in OCI Vault when the application is running on an OCI Compute Instance.
     _oci/src/main/resources/bootstrap-oraclecloud.properties_
 
     ``` properties
-    #a
-	oci.config.instance-principal.enabled=true
 	oci.vault.config.enabled=true
-	#b
-	oci.vault.vaults[0].compartment-ocid=${COMPARTMENT_ID}
-	#c
-	oci.vault.vaults[0].ocid=${VAULT_ID}
     ```
 
-    a) The application is configured to use `OCI Instance Principal Authentication` when it is running on an OCI Compute Instance.
-
-    b) The OCID of the `Compartment` that contains pre-provisioned secrets for the database credentials (`ADB_WALLET_PASSWORD`, `ADB_USER`, and `ADB_USER_PASSWORD`).
-
-    c) The OCID of `Vault`.
-
-5. The application uses externalized configuration (`ADB_WALLET_PASSWORD`, `ADB_USER`, and `ADB_USER_PASSWORD`) to establish a database connection. Here, the application will automatically connect to OCI Vault and retrieve the values of the secrets `ADB_WALLET_PASSWORD`, `ADB_USER`, and `ADB_USER_PASSWORD` from OCI Vault. Micronaut will automatically generate and download the Wallet and configure the data source using the retrieved secrets.
+3. The application uses externalized configuration (`ADB_WALLET_PASSWORD`, `ADB_USER`, and `ADB_USER_PASSWORD`) to establish a database connection. Here, the application will automatically connect to OCI Vault and retrieve the values of the secrets `ADB_WALLET_PASSWORD`, `ADB_USER`, and `ADB_USER_PASSWORD` from OCI Vault. Micronaut will automatically generate and download the Wallet and configure the data source using the retrieved secrets.
 
     _oci/src/main/resources/application-oraclecloud.properties_
 
@@ -74,7 +63,56 @@ In this lab, you will:
     datasources.default.password=${ADB_USER_PASSWORD}
     ```
 
-## Task 2: Configure the Application to connect to the OCI Autonomous Database instance
+4. In VS Code, open `bootstrap-oraclecloud.properties`. The application configuration uses two environment variables `COMPARTMENT_ID` and `VAULT_ID`.
+
+    _oci/src/main/resources/bootstrap-oraclecloud.properties_
+
+    ``` properties
+	#b
+	oci.vault.vaults[0].compartment-ocid=${COMPARTMENT_ID}
+	#c
+	oci.vault.vaults[0].ocid=${VAULT_ID}
+    ```
+
+5. Navigate to the **Identity & Security >> Compartments** section in the Oracle Cloud Console, find your work compartment in the list, open it, in the **Compartment Information** section click **Copy** to copy the value of the Compartment OCID.
+
+6. Open a new terminal in VS Code using the **Terminal > New Terminal** menu.
+
+7. Set the environment variable `COMPARTMENT_ID` using the compartment OCID you copied.
+
+	```
+	<copy>
+	export COMPARTMENT_ID=ocid1.vault.oc1...
+	</copy>
+	```
+
+8. Confirm the value set by running the following command:
+
+	```
+	<copy>
+	echo $COMPARTMENT_ID
+	</copy>
+	```
+
+9. Navigate to the **Identity & Security >> Vault** section in the Oracle Cloud Console, find your recently created Vault, open it, in the **Vault Information** section click **Copy** to copy the value of the Vault OCID.
+
+6. In the same terminal in VS Code, set the environment variable `VAULT_ID` using the Vault OCID you copied.
+
+	```
+	<copy>
+	export VAULT_ID=ocid1.vault.oc1...
+	</copy>
+	```
+
+7. Confirm the value set by running the following command:
+
+	```
+	<copy>
+	echo $VAULT_ID
+	</copy>
+	```
+
+## Task 3: Configure the Application to connect to the OCI Autonomous Database instance
 
 Add the Autonomous Database instance ID to the application configuration.
 
@@ -93,57 +131,7 @@ Add the Autonomous Database instance ID to the application configuration.
 
 3. Save (`CTRL+S`) the file.
 
-## Task 3: Configure the Application to read secrets stored in OCI Vault
-
-1. In VS Code, open `bootstrap-oraclecloud.properties`. The application configuration uses two environment variables `COMPARTMENT_ID` and `VAULT_ID`.
-
-    _oci/src/main/resources/bootstrap-oraclecloud.properties_
-
-    ``` properties
-	#b
-	oci.vault.vaults[0].compartment-ocid=${COMPARTMENT_ID}
-	#c
-	oci.vault.vaults[0].ocid=${VAULT_ID}
-    ```
-
-2. Navigate to the **Identity & Security >> Compartments** section in the Oracle Cloud Console, find your work compartment in the list, open it, in the **Compartment Information** section click **Copy** to copy the value of the Compartment OCID.
-
-3. Open a new terminal in VS Code using the **Terminal > New Terminal** menu.
-
-4. Set the environment variable `COMPARTMENT_ID` using the compartment OCID you copied.
-
-	``` bash
-	<copy>
-	export COMPARTMENT_ID=ocid1.vault.oc1...
-	</copy>
-	```
-
-5. Confirm the value set by running the following command:
-
-	``` bash
-	<copy>
-	echo $COMPARTMENT_ID
-	</copy>
-	```
-
-6. Set the environment variable `VAULT_ID` using the Vault OCID from the **Lab 4.1** .
-
-	``` bash
-	<copy>
-	export VAULT_ID=ocid1.vault.oc1...
-	</copy>
-	```
-
-7. Confirm the value set by running the following command:
-
-	``` bash
-	<copy>
-	echo $VAULT_ID
-	</copy>
-	```
-
-
-## Task 2: <if type="desktop">Use</if><if type="tenancy">Configure</if> OCI Instance Principal Authentication
+## Task 4: <if type="desktop">Use</if><if type="tenancy">Configure</if> OCI Instance Principal Authentication
 
 1. In VS Code, open `application-oraclecloud.properties`. The application is configured to use `OCI Instance Principal Authentication` when it is running on an OCI Compute Instance.
 
@@ -154,11 +142,11 @@ Add the Autonomous Database instance ID to the application configuration.
 	```
 
 <if type="desktop">
-2. The workshop environment includes a preconfigured `Instance Principal` using a `Dynamic Group` and a `Policy` in OCI to allow the application to send logs to OCI Logging.
+2. The workshop environment includes a preconfigured `Instance Principal` using a `Dynamic Group` and a `Policy` in OCI to allow the application to read secrets stored in OCI Vault.
 </if>
 
 <if type="tenancy">
-2. The following steps show you how to set up an `Instance Principal` using a `Dynamic Group`-less `Policy` in OCI to allow the application to send logs to OCI Logging.
+2. The following steps show you how to set up an `Instance Principal` using a `Dynamic Group`-less `Policy` in OCI to allow the application to to read secrets stored in OCI Vault.
 
 3. From the Oracle Cloud Console navigation menu, go to **Identity & Security >> Identity >> Policies**.
 
@@ -182,7 +170,7 @@ Add the Autonomous Database instance ID to the application configuration.
 	</copy>
 	```
 
-	To learn more about policies to control access to OCI Logging, see [Policy Reference - Details for Logging](https://docs.oracle.com/en-us/iaas/Content/Identity/Reference/databasepolicyreference.htm).
+	To learn more about policies to control access to OCI Vault, see [Policy Reference - Details for Vault](https://docs.oracle.com/en-us/iaas/Content/Identity/Reference/keypolicyreference.htm).
 
 </if>
 

@@ -66,8 +66,6 @@ In this lab, you will:
 
    It takes about 2-3 minutes to provision an OCI Autonomous Database instance. Meanwhile, proceed to the next step.
 
-16. On the **Autonomous Database Details** screen click **Copy** to copy the OCID of the database. This is a unique identifier which you will need later.
-
 Congratulations! In this lab, you created a new OCI Autonomous Database instance in your workshop compartment.
 
 You may now **proceed to the next lab**.

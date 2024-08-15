@@ -1,4 +1,4 @@
-# Build and run a native executable and view the logs in OCI Logging
+# Build and run a native executable
 
 ## Introduction
 
@@ -18,7 +18,7 @@ In this lab, you will:
 
 * Build and run a native executable for the application
 * Send an HTTP POST request to add a Genre
-* Send an HTTP POST request to view the OCI Autonomous Database endpoint
+* Send an HTTP GET request to fetch all Genres from the database
 * Stop the application
 
 ## Task 1: Build and run a native executable for the application
@@ -51,7 +51,7 @@ In this lab, you will:
 
    The native executable starts instantaneously.
 
-## Task 2: Send an HTTP POST request
+## Task 2: Send an HTTP POST request to add a Genre
 
 1. From the second terminal in VS Code, add a genre using the command below.
 
@@ -61,7 +61,7 @@ In this lab, you will:
 	</copy>
 	```
 
-## Task 3: Send an HTTP POST request to view the OCI Autonomous Database endpoint
+## Task 3: Send an HTTP GET request to fetch all Genres from the database
 
 1. From the same terminal in VS Code, check the `genres` present in the database using the `/list` endpoint exposed by the application:
 

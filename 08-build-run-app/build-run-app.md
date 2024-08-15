@@ -12,7 +12,7 @@ In this lab, you will:
 
 * Build and run the application
 * Send an HTTP POST request to add a Genre
-* Send an HTTP POST request to view the OCI Autonomous Database endpoint
+* Send an HTTP GET request to fetch all Genres from the database
 * Stop the application
 
 ## Task 1: Build and run the application
@@ -25,7 +25,7 @@ In this lab, you will:
 
 	``` bash
 	<copy>
-	 ./mvnw install -pl lib -am && MICRONAUT_ENVIRONMENTS=oraclecloud ./mvnw mn:run -pl oci
+	./mvnw install -pl lib -am && MICRONAUT_ENVIRONMENTS=oraclecloud ./mvnw mn:run -pl oci
 	</copy>
 	```
 </if>
@@ -59,7 +59,7 @@ In this lab, you will:
 
    ![VS Code ](images/vscode-dont-show-again.png)
 
-## Task 3: Send an HTTP POST request to view the OCI Autonomous Database endpoint
+## Task 3: Send an HTTP GET request to fetch all Genres from the database
 
 1. From the same terminal in VS Code, check the `genres` present in the database using the `/list` endpoint exposed by the application:
 
