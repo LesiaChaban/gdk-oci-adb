@@ -112,13 +112,9 @@ public interface GenreRepository extends PageableRepository<Genre, Long> { // <2
 
 2. `Genre`, the entity to treat as the root entity for the purposes of querying, is established either from the method signature or from the generic type parameter specified to the `GenericRepository` interface. The repository extends from `PageableRepository`. It inherits the hierarchy `PageableRepository` → `CrudRepository` → `GenericRepository`.
 
-```
-| Repository           | Description                                                                                                                                                                  |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `PageableRepository` | A repository that supports pagination. It provides `findAll(Pageable)` and `findAll(Sort)`.                                                                                  |
-| `CrudRepository`     | A repository interface for performing CRUD (Create, Read, Update, Delete). It provides methods such as `findAll()`, `save(Genre)`, `deleteById(Long)`, and `findById(Long)`. |
-| `GenericRepository`  | A root interface that features no methods but defines the entity type and ID type as generic arguments.                                                                      |
-```
+    - `PageableRepository`: A repository that supports pagination. It provides `findAll(Pageable)` and `findAll(Sort)`.
+    - `CrudRepository`: A repository interface for performing CRUD (Create, Read, Update, Delete). It provides methods such as `findAll()`, `save(Genre)`, `deleteById(Long)`, and `findById(Long)`.
+    - `GenericRepository`: A root interface that features no methods but defines the entity type and ID type as generic arguments.
 
 3. Micronaut validation is built on the standard framework – [JSR 380](https://jcp.org/en/jsr/detail?id=380), also known as Bean Validation 2.0. Micronaut [has built-in support for validation of beans](https://docs.micronaut.io/latest/guide/#beanValidation) that are annotated with `javax.validation` annotations. The necessary dependencies are included by default when creating a new application, so you don’t need to add anything else.
 

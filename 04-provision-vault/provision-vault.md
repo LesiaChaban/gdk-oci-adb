@@ -15,11 +15,11 @@ In this lab, you will:
 
 ## Task 1: Create an OCI Vault
 
-1. From the Oracle Cloud Console, open the navigation menu, click **Identity & Security**, and then click **Vault**.
+1. From the Oracle Cloud Console, open the navigation menu, click **Identity & Security**, and then click **Vault** under **Key Management & Secret Management**.
 
    ![Vault menu](images/vault-menu.png)
 
-2. Under **List scope**, select the compartment in which you want to create the vault.
+2. Select your workshop compartment from the **Compartment** drop down list on the left.
 
    ![Select Compartment Button](images/select-compartment-button.jpg)
 
@@ -30,7 +30,7 @@ In this lab, you will:
 4. In the **Create Vault** dialog box, provide the following details:
 
       ```
-      Create in Compartment: <your compartment>
+      Create in Compartment: <your workshop compartment>
 
       Name: shared-vault
 
@@ -39,9 +39,7 @@ In this lab, you will:
 
       >Note: You cannot change the vault type after the vault is created.
 
-5. Click **Crete Vault**
-
-6. View the **Vault** details. Copy **OCID**, you will need it in the configuring application lab.
+5. Click **Create Vault**
 
 ## Task 2: Create OCI Vault Master Encryption Key
 
@@ -63,7 +61,7 @@ In this lab, you will:
 
 3. Click **Create Key**.
 
-Congratulations! In this lab, you created a new OCI Vault with Master Encryption Key in your workshop compartment.
+Congratulations! In this lab, you created a new OCI Vault with a Master Encryption Key in your workshop compartment.
 
 You may now **proceed to the next lab**.
 
