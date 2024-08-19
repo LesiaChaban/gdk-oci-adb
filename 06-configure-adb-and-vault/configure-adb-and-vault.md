@@ -39,7 +39,7 @@ In this lab, you will:
       </copy>
       ```
 
-      The schema user password must be at least 12 characters and contain a number and an uppercase letter. Replace the text **XXXXXXXXX** with the schema user password password.
+      The schema user password must be at least 12 characters and contain a number and an uppercase letter. Replace the text **XXXXXXXXX** with the schema user password.
 
 5. Back in the **SQL** screen, paste the script you copied into the Worksheet section.
 
@@ -57,51 +57,51 @@ In this lab, you will:
 
 3. Enter the following details:
 
-   ```
-   Name: ADB_WALLET_PASSWORD
+      ```
+      Name: ADB_WALLET_PASSWORD
 
-   Encryption Key: master-key (Select the master key created in the previous lab)
+      Encryption Key: master-key (Select the master key created in the previous lab)
 
-   Manual secret generation 
+      Manual secret generation 
 
-   Secret Type Template: Plain-Text
+      Secret Type Template: Plain-Text
 
-   Secret Contents: (Enter a value at least eight characters long and must include at least one letter and either one numeric character or one special character)
+      Secret Contents: (Enter a value at least eight characters long and must include at least one letter and either one numeric character or one special character)
 
-   Show Base64 conversion: YES
-   ```
+      Show Base64 conversion: YES
+      ```
 
 4. Enter the following details:
 
-   ```
-   Name: ADB_USER
+      ```
+      Name: ADB_USER
 
-   Encryption Key: master-key (Select the master key created in the previous lab)
+      Encryption Key: master-key (Select the master key created in the previous lab)
 
-   Manual secret generation 
+      Manual secret generation 
 
-   Secret Type Template: Plain-Text
+      Secret Type Template: Plain-Text
 
-   Secret Contents: gdk_user
+      Secret Contents: gdk_user
 
-   Show Base64 conversion: YES
-   ```
+      Show Base64 conversion: YES
+      ```
 
 5. Enter the following details:
 
-   ```
-   Name: ADB_USER_PASSWORD
+      ```
+      Name: ADB_USER_PASSWORD
 
-   Encryption Key: master-key (Select the master key created in the previous lab)
+      Encryption Key: master-key (Select the master key created in the previous lab)
 
-   Manual secret generation 
+      Manual secret generation 
 
-   Secret Type Template: Plain-Text
+      Secret Type Template: Plain-Text
 
-   Secret Contents: (Paste the secret value created in the above task)
+      Secret Contents: (Paste the secret value created in the above task)
 
-   Show Base64 conversion: YES
-   ```
+      Show Base64 conversion: YES
+      ```
 
 Congratulations! In this section, you created a database schema user and password, and the secrets in OCI Vault.
 

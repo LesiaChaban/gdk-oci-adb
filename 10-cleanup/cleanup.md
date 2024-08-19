@@ -10,8 +10,12 @@ Estimated Workshop Time: 05 minutes
 
 In this lab, you will:
 
+* Delete the ADB instance
+* Delete the three Secrets
+* Delete the Master Encryption Key
+* Delete the Vault
 * Destroy Stack
-* Delete Stack
+* Delete the Stack
 * Delete the Instance Principals Policy
 
 ## Task 1: Cleanup
