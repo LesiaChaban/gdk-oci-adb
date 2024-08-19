@@ -53,18 +53,56 @@ In this lab, you will:
 
 1. In the **Vault** you created, navigate to **Secrets**, click **Create Secret**.
 
-2. Created three secrets in the same compartment.
+   ![Create secrets menu](./images/create-secrets-menu.png#input)
+
+2. Create three secrets in the same compartment.
 
    1. `ADB_WALLET_PASSWORD`
 
+      Provide with the following details:
+
+      ```
+      Encryption Key: master-key (Select the master key created in Lab 5.2)
+
+      Name: ADB_WALLET_PASSWORD
+
+      Type of generation: "Manual secret generation"
+
+      Secret Type Template: Plain-Text
+
+      Secret Contents: Micronaut1
+
+      Show Base64 conversion: YES
+      ```
+
+      ![Create ADB wallet secret](./images/create-adb-wallet-secret.png)
+
    2. `ADB_USER`
+
+      Provide with the following details:
+
+      ```
+      Encryption Key: master-key (Select the master key created in Lab 5.2)
+
+      Name: ADB_USER
+
+      Type of generation: "Manual secret generation"
+
+      Secret Type Template: Plain-Text
+
+      Secret Contents: gdk_user
+
+      Show Base64 conversion: YES
+      ```
+
+      ![Create ADB user secret](./images/create-adb-wallet-secret.png)
 
    3. `ADB_USER_PASSWORD`
 
    Provide with the following details for each one:
 
       ```
-      Encryption Key: master-key (Select the master key created in Lab 4.2)
+      Encryption Key: master-key (Select the master key created in Lab 5.2)
 
       Secret Type Template: Plain-Text
 

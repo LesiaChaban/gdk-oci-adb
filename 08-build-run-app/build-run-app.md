@@ -49,8 +49,10 @@ In this lab, you will:
 
 2. From the second terminal in VS Code, add a genre using the command below, and the `GENRE` table will now contain an entry.
 
-    ``` bash
+    ```
+    <copy>
     curl -X "POST" "http://localhost:8080/genres" -H 'Content-Type: application/json; charset=utf-8' -d '{ "name": "fiction" }' | jq
+    </copy>
     ```
 
 	VS Code may prompt you to open the URL in a browser as shown below. Just click the **Configure Notifications** gear icon and then click **Don't Show Again**.
