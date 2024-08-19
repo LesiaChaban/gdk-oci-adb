@@ -37,7 +37,7 @@ In this lab, you will:
       Make it a virtual private vault: NO (LEAVE THE BOX UNCHECKED)
       ```
 
-      ![Provide Details Space](images/provide-details-space.png)
+      ![Create Vault Details](images/create-vault-details.png)
 
       >Note: You cannot change the vault type after the vault is created.
 
