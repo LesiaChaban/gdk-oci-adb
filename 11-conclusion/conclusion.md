@@ -1,6 +1,6 @@
 # Conclusion
 
-In this workshop, you've learnt how to build Java application with the Graal Development Kit for Micronaut (GDK), OCI Autonomous Database service and Secrets in OCI Vault.
+In this workshop, you've learnt how to build a Java application with the Graal Development Kit for Micronaut (GDK), OCI Autonomous Database service and Secrets in OCI Vault.
 
 You've seen how to use GraalVM Native Image to package and run the application as a native executable.
 
@@ -16,6 +16,6 @@ Application developers can use the Graal Development Kit for Micronaut (GDK) to 
 
 ## Acknowledgements
 
-**Author** - [](var:author)
-**Contributors** - [](var:contributors)
-**Last Updated By/Date** - [](var:last_updated)
+* **Author** - [](var:author)
+* **Contributors** - [](var:contributors)
+* **Last Updated By/Date** - [](var:last_updated)

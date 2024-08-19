@@ -18,7 +18,7 @@ In this lab, you will:
 
 * Build and run a native executable for the application
 * Send an HTTP POST request to add a Genre
-* Send an HTTP GET request to fetch all Genres from the database
+* Send an HTTP GET request to fetch all the Genres from the database
 * Stop the application
 
 ## Task 1: Build and run a native executable for the application
@@ -39,7 +39,7 @@ In this lab, you will:
 	</copy>
 	```
 
-   It can take approximately 3-4 minutes to generate the native executable.
+   It can take approximately 7-8 minutes to generate the native executable.
 
 3. The native executable is created in the _oci/target_ directory and can be run with the following command:
 
@@ -65,9 +65,11 @@ In this lab, you will:
 
 1. From the same terminal in VS Code, check the `genres` present in the database using the `/list` endpoint exposed by the application:
 
-    ``` bash
-    curl localhost:8080/genres/list | jq
-    ```
+	``` bash
+	<copy>
+	curl localhost:8080/genres/list | jq
+	</copy>
+	```
 
 ## Task 4: Stop the application
 

@@ -12,10 +12,10 @@ Estimated Lab Time: 05 minutes
 
 In this lab, you will:
 
-* Create OCI Autonomous Database schema user and password
-* Create secrets in OCI Vault for schema user and password
+* Create the Autonomous Database schema user and password
+* Create secrets in the Vault for the wallet password, database schema user and password
 
-## Task 1: Create OCI Autonomous Database schema user and password
+## Task 1: Create the Autonomous Database schema user and password
 
 1. From the **Autonomous Database details** screen opened in the browser, click **Database actions**.
 
@@ -31,85 +31,77 @@ In this lab, you will:
 
 4. Copy and paste the following SQL commands into the worksheet:
 
-   ```
-   <copy>
-   CREATE USER gdk_user IDENTIFIED BY "XXXXXXXXX";
-   GRANT CONNECT, RESOURCE TO gdk_user;
-   GRANT UNLIMITED TABLESPACE TO gdk_user;
-   </copy>
-   ```
+      ```
+      <copy>
+      CREATE USER gdk_user IDENTIFIED BY "XXXXXXXXX";
+      GRANT CONNECT, RESOURCE TO gdk_user;
+      GRANT UNLIMITED TABLESPACE TO gdk_user;
+      </copy>
+      ```
 
-   Create a schema user password (must be at least 12 characters and contain a number and an uppercase letter) and replace the text **XXXXXXXXX** with that password.
+      The schema user password must be at least 12 characters and contain a number and an uppercase letter. Replace the text **XXXXXXXXX** with the schema user password password.
 
-5. Back in the **SQL** screen, paste (`CTRL+SHIFT+V`) the script you copied into the Worksheet section.
+5. Back in the **SQL** screen, paste the script you copied into the Worksheet section.
 
    ![Paste create ADB user and pass](./images/paste-create-db-user-pass.jpg#input)
 
-7. Click **Run Script** to run the SQL commands. The commands will create a database user, password, and grant all the privileges to the user.
+6. Click **Run Script** to run the SQL commands. The commands will create a database user, password, and grant all the privileges to the user.
 
    ![ADB user and pass created](./images/run-db-user-pass.jpg#input)
 
-## Task 2: Create secrets in OCI Vault for schema user and password
+## Task 2: Create secrets in the Vault for the wallet password, database schema user and password
 
 1. In the **Vault** you created, navigate to **Secrets**, click **Create Secret**.
 
-   ![Create secrets menu](./images/create-secrets-menu.png#input)
+2. Created three secrets - `ADB_WALLET_PASSWORD`, `ADB_USER`, and `ADB_USER_PASSWORD` - in the your workshop compartment.
 
-2. Create three secrets in the same compartment.
+3. Enter the following details:
 
-   1. `ADB_WALLET_PASSWORD`
+   ```
+   Name: ADB_WALLET_PASSWORD
 
-      Provide with the following details:
+   Encryption Key: master-key (Select the master key created in the previous lab)
 
-      ```
-      Encryption Key: master-key (Select the master key created in Lab 5.2)
+   Manual secret generation 
 
-      Name: ADB_WALLET_PASSWORD
+   Secret Type Template: Plain-Text
 
-      Type of generation: "Manual secret generation"
+   Secret Contents: (Enter a value at least eight characters long and must include at least one letter and either one numeric character or one special character)
 
-      Secret Type Template: Plain-Text
+   Show Base64 conversion: YES
+   ```
 
-      Secret Contents: Micronaut1
+4. Enter the following details:
 
-      Show Base64 conversion: YES
-      ```
+   ```
+   Name: ADB_USER
 
-      ![Create ADB wallet secret](./images/create-adb-wallet-secret.png)
+   Encryption Key: master-key (Select the master key created in the previous lab)
 
-   2. `ADB_USER`
+   Manual secret generation 
 
-      Provide with the following details:
+   Secret Type Template: Plain-Text
 
-      ```
-      Encryption Key: master-key (Select the master key created in Lab 5.2)
+   Secret Contents: gdk_user
 
-      Name: ADB_USER
+   Show Base64 conversion: YES
+   ```
 
-      Type of generation: "Manual secret generation"
+5. Enter the following details:
 
-      Secret Type Template: Plain-Text
+   ```
+   Name: ADB_USER_PASSWORD
 
-      Secret Contents: gdk_user
+   Encryption Key: master-key (Select the master key created in the previous lab)
 
-      Show Base64 conversion: YES
-      ```
+   Manual secret generation 
 
-      ![Create ADB user secret](./images/create-adb-wallet-secret.png)
+   Secret Type Template: Plain-Text
 
-   3. `ADB_USER_PASSWORD`
+   Secret Contents: (Paste the secret value created in the above task)
 
-   Provide with the following details for each one:
-
-      ```
-      Encryption Key: master-key (Select the master key created in Lab 5.2)
-
-      Secret Type Template: Plain-Text
-
-      Secret Contents: (Paste the secret value)
-
-      Show Base64 conversion: YES
-      ```
+   Show Base64 conversion: YES
+   ```
 
 Congratulations! In this section, you created a database schema user and password, and the secrets in OCI Vault.
 

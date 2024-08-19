@@ -2,7 +2,7 @@
 
 ## About this Workshop
 
-This workshop takes you step by step through the process of building Java application with the Graal Development Kit for Micronaut (GDK), Oracle Cloud Infrastructure (OCI) Autonomous Database (ADB) service and Secrets in OCI Vault.
+This workshop takes you step by step through the process of building a Java application with the Graal Development Kit for Micronaut (GDK), Oracle Cloud Infrastructure (OCI) Autonomous Database (ADB) service and Secrets in OCI Vault.
 You'll use GraalVM Native Image to package and run the application as a native executable.
 
 It is aimed at application developers and DevOps engineers with an intermediate knowledge of Java.
@@ -31,13 +31,13 @@ The GDK modules are designed for ahead-of-time compilation with GraalVM Native I
 
 In this workshop, you will:
 
-* Create a new OCI Autonomous Database instance and the Vault
+* Create a new OCI Autonomous Database instance and a Vault
 * Use Visual Studio Code (VS Code) from a remote desktop running in an OCI Compute Instance
 * Review the application source code developed with the Graal Development Kit for Micronaut
 * Configure the Autonomous Database instance and the Vault
 * Configure the application to use the Autonomous Database instance and the Vault
 * Build a native executable for the application using GraalVM Native Image
-* Test the application with the Autonomous Database instance using database credentials stored as secrets in OCI Vault
+* Test the application with the Autonomous Database instance using database credentials stored as secrets in the Vault
 
 ### Prerequisites
 
