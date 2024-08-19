@@ -71,6 +71,9 @@ In this lab, you will:
       Show Base64 conversion: YES
       ```
 
+      ![Create ADB wallet secret](./images/create-adb-wallet-secret.png)
+
+
 4. Enter the following details:
 
       ```
@@ -78,7 +81,7 @@ In this lab, you will:
 
       Encryption Key: master-key (Select the master key created in the previous lab)
 
-      Manual secret generation 
+      Manual secret generation
 
       Secret Type Template: Plain-Text
 
@@ -87,6 +90,8 @@ In this lab, you will:
       Show Base64 conversion: YES
       ```
 
+      ![Create ADB user secret](./images/create-adb-user-secret.png)
+
 5. Enter the following details:
 
       ```
@@ -94,7 +99,7 @@ In this lab, you will:
 
       Encryption Key: master-key (Select the master key created in the previous lab)
 
-      Manual secret generation 
+      Manual secret generation
 
       Secret Type Template: Plain-Text
 
@@ -102,6 +107,9 @@ In this lab, you will:
 
       Show Base64 conversion: YES
       ```
+
+      ![Create ADB user-password secret](./images/create-adb-user-password-secret.png)
+
 
 Congratulations! In this section, you created a database schema user and password, and the secrets in OCI Vault.
 

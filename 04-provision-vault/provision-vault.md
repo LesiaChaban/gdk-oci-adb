@@ -61,6 +61,8 @@ In this lab, you will:
       Import External key: NO (LEAVE THE BOX UNCHECKED)
       ```
 
+      ![Create Key Details](images/create-key-details.png)
+
 3. Click **Create Key**.
 
 Congratulations! In this lab, you created a new OCI Vault with a Master Encryption Key in your workshop compartment.
